@@ -22,8 +22,8 @@ setopt appendhistory     # append history (instead of overwriting)
 setopt sharehistory      # history shared across terminals
 setopt incappendhistory  # immediately save, not just after term exit
 
-export EDITOR='nvim'
-export VISUAL='nvim'
+export EDITOR='vim'
+export VISUAL='vim'
 
 # C Tools lecture support
 if [ -z ${ARCH+x} ]
