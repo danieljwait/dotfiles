@@ -24,3 +24,20 @@ setopt incappendhistory  # immediately save, not just after term exit
 
 export EDITOR='nvim'
 export VISUAL='nvim'
+
+# C Tools lecture support
+if [ -z ${ARCH+x} ]
+then
+  export ARCH=`arch`
+fi
+export TOOLDIR=$HOME/c-tools
+export PATH="$TOOLDIR/bin:$TOOLDIR/bin/$ARCH:$PATH"
+if [ -z ${MANPATH+x} ]
+then
+  # note: this may disable other man pages, you could consider
+  # setting export MANPATH=`manpath` beforehand, if you have the
+  # "manpath" utility.
+  export MANPATH=$TOOLDIR/man
+else
+  export MANPATH=${MANPATH}:$TOOLDIR/man
+fi
