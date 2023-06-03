@@ -1,0 +1,31 @@
+[user]
+	name = Daniel Wait
+	email = 71983137+daniel95wait@users.noreply.github.com
+	signingkey = /home/daniel/.ssh/id_rsa
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[gpg "ssh"]
+	allowedSignersFile = /home/daniel/.git_allowed_signers
+[tag]
+	gpgsign = true
+[gpg]
+    format = ssh
+[core]
+	excludesFile = ~/.gitignore
+[pull]
+    rebase = true
+[merge]
+	ff = false
+    conflictstyle = diff3
+[fetch]
+    prune = true
+[alias]
+    st = status -sb
+    cm = commit -S -m
+    last = log -1 HEAD --stat
+    ll = log --oneline
+    pl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+[includeIf "gitdir:~/imperial_prog/"]
+    path = ~/imperial_prog/.gitconfig_include

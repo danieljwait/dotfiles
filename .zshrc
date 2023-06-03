@@ -7,6 +7,14 @@ if [[ -f ~/.p10k.zsh ]]; then
   source ~/.p10k.zsh;
 fi
 
+# # add pyenv to path
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+
+# # load pyenv-virtualenv automatically
+# eval "$(pyenv virtualenv-init -)"
+
 # Common aliases between bash and zsh
 source ~/.aliases
 
@@ -26,18 +34,7 @@ export EDITOR='vim'
 export VISUAL='vim'
 
 # C Tools lecture support
-if [ -z ${ARCH+x} ]
-then
-  export ARCH=`arch`
-fi
-export TOOLDIR=$HOME/c-tools
-export PATH="$TOOLDIR/bin:$TOOLDIR/bin/$ARCH:$PATH"
-if [ -z ${MANPATH+x} ]
-then
-  # note: this may disable other man pages, you could consider
-  # setting export MANPATH=`manpath` beforehand, if you have the
-  # "manpath" utility.
-  export MANPATH=$TOOLDIR/man
-else
-  export MANPATH=${MANPATH}:$TOOLDIR/man
-fi
+source ~/.c-tools
+
+export PATH="$PATH:/home/daniel/Documents/arm-toolchain/bin"
+export PATH="$PATH:/home/daniel/.local/bin"

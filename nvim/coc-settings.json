@@ -1,0 +1,6 @@
+{
+  "inlayHint.enable": false,
+  "clangd.path": "/usr/bin/clangd",
+  "semanticTokens.enable": true,
+  "semanticTokens.filetype" : ["c"]
+}
