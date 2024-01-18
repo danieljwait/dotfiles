@@ -12,6 +12,3 @@ alias hibernate='systemctl hibernate'
 alias off='shutdown now'
 
 alias n='nvim'
-
-alias prog='cd ~/imperial_prog/c_proj/src'
-alias tests='cd ~/imperial_prog/armv8_tests'
