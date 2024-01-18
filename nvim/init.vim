@@ -1,13 +1,33 @@
+" Make <Space> the leader key
+map <space> <leader>
+map ; :
+
 set number
-set relativenumber
+"set relativenumber
 set colorcolumn=80
 set mouse=a                " TODO: check default
 
 filetype plugin indent on
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set cindent
+
+" Keep cursor 5 lines away from top/bottom of screen
+set scrolloff=5
+
+nmap <leader>e :tabe .<CR>
+nmap <leader>q :q<CR>
+nmap <leader>w :w<CR>
+
+nmap <leader>h :noh<CR>
+
+" trigger `autoread` when files changes on disk
+set autoread
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+" notification after file change
+autocmd FileChangedShellPost *
+            \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 set updatetime=300 " Reduces delay for plugin refreshes
 
@@ -24,6 +44,12 @@ Plug 'preservim/tagbar' "Tagbar for code navigation
 Plug 'ludovicchabant/vim-gutentags' "Maintain tagfile
 Plug 'gruvbox-community/gruvbox' "Gruvbox theme
 Plug 'airblade/vim-gitgutter' "Show git changes in gutter
+Plug 'ntpeters/vim-better-whitespace' "Highlight trailing whitespace
+Plug 'nvim-lua/plenary.nvim' "Lua functions for Telescope
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' } "Fuzzy finder
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "Treesitter
+Plug 'neovimhaskell/haskell-vim'
+" Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 call plug#end()
 
 set termguicolors
@@ -49,6 +75,9 @@ nmap <C-l> <Right>
 nmap <F8> :TagbarToggle<CR>
 
 map <F12> :CocCommand clangd.switchSourceHeader<CR>
+
+nnoremap <leader>ff <cmd>Telescope find_files<CR>
+nnoremap <leader>fg <cmd>Telescope live_grep<CR>
 
 inoremap <silent><expr> <c-space> coc#refresh()
 
