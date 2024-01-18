@@ -3,9 +3,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
-if [[ -f ~/.p10k.zsh ]]; then
-  source ~/.p10k.zsh;
-fi
 
 # # add pyenv to path
 # export PYENV_ROOT="$HOME/.pyenv"
@@ -38,3 +35,11 @@ source ~/.c-tools
 
 export PATH="$PATH:/home/daniel/Documents/arm-toolchain/bin"
 export PATH="$PATH:/home/daniel/.local/bin"
+export PATH="$PATH:/home/daniel/imperial_prog/pintos/src/utils"
+export PATH="$PATH:/usr/local/sicstus4.8.0/bin"
+
+# ghcup-env
+[ -f "/home/daniel/.ghcup/env" ] && source "/home/daniel/.ghcup/env"
+
+# To customize prompt, run `p10k configure` or edit ~/dotfiles/.p10k.zsh.
+[[ ! -f ~/dotfiles/.p10k.zsh ]] || source ~/dotfiles/.p10k.zsh
