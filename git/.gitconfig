@@ -42,6 +42,5 @@
     ll = log --oneline
     pl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
-[includeIf "gitdir:~/imperial_prog/"]
-    path = ~/imperial_prog/.gitconfig_include
-
+[includeIf "gitdir:~/icl-gl/"]
+    path = ~/icl-gl/.gitconfig
