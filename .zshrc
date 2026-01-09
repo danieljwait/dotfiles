@@ -1,27 +1,27 @@
+# History
 HISTFILE=~/.zsh_history
-HISTSIZE=5000            # num lines in memory
-SAVEHIST=5000            # num lines on disk
-HISTDUP=erase            # erase duplicate
-setopt appendhistory     # append history (instead of overwriting)
-setopt sharehistory      # history shared across terminals
-setopt incappendhistory  # immediately save, not just after term exit
+HISTSIZE=10000
+SAVEHIST=10000
+setopt HIST_IGNORE_ALL_DUPS  # If you run a command twice, keep only the latest
+setopt HIST_REDUCE_BLANKS    # Remove wasted space
+setopt SHARE_HISTORY         # Share history between all open tabs
+setopt INC_APPEND_HISTORY    # Save commands immediately
 
-# lines from zsh-newuser-install
-setopt extendedglob
-bindkey -e  # emacs keybind (fixes C-a)
+# Usability & Keys
+autoload -Uz compinit && compinit    # Enable Tab-completion
+bindkey -e                           # Use Emacs keys (Ctrl-A, Ctrl-E)
+setopt EXTENDED_GLOB                 # Advanced file matching
 
-# lines from compinstall
-zstyle :compinstall filename '/home/daniel/.zshrc'
-autoload -Uz compinit
-compinit
-
+# Default editor
 export EDITOR='vim'
 export VISUAL='vim'
 
+# Aliases
 source ~/.aliases
 
+# Plugins
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/command-not-found.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Prompt
 eval "$(starship init zsh)"

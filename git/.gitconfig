@@ -1,7 +1,7 @@
 [user]
     name = Daniel Wait
     email = 71983137+danieljwait@users.noreply.github.com
-    signingkey = /home/daniel/.ssh/id_rsa
+    signingkey = ~/.ssh/id_ed25519.pub
 
 [gpg]
     format = ssh
@@ -9,38 +9,31 @@
 [commit]
     gpgsign = true
 
-[gpg "ssh"]
-    allowedSignersFile = /home/daniel/.git_allowed_signers
-
 [tag]
     gpgsign = true
 
-[gpg]
-    format = ssh
+[gpg "ssh"]
+    allowedSignersFile = ~/.config/git/allowed_signers
 
 [core]
-    excludesFile = ~/.gitignore
     pager = delta
 
-[pull]
-    rebase = true
+[delta]
+    navigate = true
+    dark = true
+    line-numbers = true
+    side-by-side = false
 
-[merge]
-    ff = false
-    conflictstyle = diff3
+[interactive]
+    diffFilter = delta --color-only
 
 [diff]
     colorMoved = default
 
-[fetch]
-    prune = true
+[merge]
+    conflictstyle = zdiff3
 
 [alias]
     st = status -sb
-    cm = commit -S -m
     last = log -1 HEAD --stat
-    ll = log --oneline
-    pl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-
-[includeIf "gitdir:~/icl-gl/"]
-    path = ~/icl-gl/.gitconfig
+    pl = log --graph --pretty=format:'%C(red)%h%C(reset) %C(green)(%ci)%C(reset) %s %C(bold blue)<%an>%Creset%C(auto)%d%C(reset)' --abbrev-commit --date=relative -10
